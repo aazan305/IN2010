@@ -1,0 +1,37 @@
+Procedure LageBalansertSokeTraer(array,start,slutt)
+    if start>slutt then
+        return
+    
+    midten= (start +slutt)//2
+    print(midten)
+    LageBalansertSokeTraer(array,start,midten-1)
+    LageBalansertSokeTraer(array,midten+1,slutt)
+
+
+Procedure LagBalansertSokeTreHeap(maksHeap, minHeap)
+    if maksHeap.erTom() AND minHeap.erTom() then
+        return
+
+    if maksHeap.størrelse() >= minHeap.størrelse() then
+        midt = maksHeap.fjern()
+    else
+        midt = minHeap.fjern()
+    
+    print(midten)  // Skriv ut det midterste elementet
+
+    LagBalansertSokeTre(maksHeap, minHeap)  // Rekursivt kall
+
+Procedure LeggInnIPassendeHeap(maksHeap, minHeap, nummer)
+    if maksHeap.erTom() OR nummer <= maksHeap.topp() then
+        maksHeap.leggTil(nummer)  // Legg nummeret i maks-heap
+    else
+        minHeap.leggTil(nummer)    // Legg nummeret i min-heap
+
+    // Rebalansering
+    if maksHeap.størrelse() > minHeap.størrelse() + 1 then
+        minHeap.leggTil(maksHeap.fjern())
+    else if minHeap.størrelse() > maksHeap.størrelse() then
+        maksHeap.leggTil(minHeap.fjern())
+
+
+
